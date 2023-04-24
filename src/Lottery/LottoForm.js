@@ -7,13 +7,13 @@ const LottoForm = ({
   setLotteryResult,
   selectedDate,
   setSelectedDate,
-  lotteryDate,
+  Dates,
 }) => {
   return (
     <div>
       {/* กรอกเลข */}
       <h1 className="font-bold text-xl text-center mt-16">
-        ตรวจผลลอตเตอรี่ by หวยบิน
+        ตรวจผลลอตเตอรี่ by Cake Lotto!
       </h1>
       <div className="w-3/4 mx-auto bg-gray-100 mt-8 p-6">
         <div className="flex mt-4">
@@ -24,9 +24,9 @@ const LottoForm = ({
               onChange={(e) => setSelectedDate(e.target.value)}
               value={selectedDate}
             >
-              {lotteryDate.map((date) => (
-                <option key={date.dateString} value={date.dateString}>
-                  {date.dateText}
+              {Dates.map((date) => (
+                <option key={date.date} value={date.date}>
+                  {date.title}
                 </option>
               ))}
             </select>

@@ -11,8 +11,8 @@ dayjs.locale("th");
 dayjs.extend(utc);
 
 const Lottery1 = () => {
-  const [lotteryDate, setLotteryDate] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(lotteryDate[0]?.dateString);
+  // const [lotteryDate, setLotteryDate] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(Dates[0]?.title);
   const [lotteryData, setLotteryData] = useState([]);
   const [lotteryNumbers, setLotteryNumbers] = useState("");
   const [lotteryResult, setLotteryResult] = useState([
@@ -25,26 +25,26 @@ const Lottery1 = () => {
 
   console.log("งวดที่เลือก คือ ", selectedDate);
 
-  useEffect(() => {
-    axios({
-      method: "POST",
-      url: `http://localhost:3100/lotteryDates`,
-    }).then((response) => {
-      console.log("response Date : ", response);
+  // useEffect(() => {
+  //   axios({
+  //     method: "POST",
+  //     url: `http://localhost:3000/lotteryDates`,
+  //   }).then((response) => {
+  //     console.log("response Date : ", response);
 
-      const _lotteryDate = response.data?.map((r) => {
-        const dateString = dayjs(r.date).utc().local().format("YYYY-MM-DD");
-        const dateText = dayjs(r.date)
-          .locale("th")
-          .utc()
-          .local()
-          .format("DD MMMM YYYY");
-        return { ...r, dateString, dateText };
-      });
-      setLotteryDate(_lotteryDate);
-      console.log("lotteryDate : ", _lotteryDate);
-    });
-  }, []);
+  //     const _lotteryDate = response.data?.map((r) => {
+  //       const dateString = dayjs(r.date).utc().local().format("YYYY-MM-DD");
+  //       const dateText = dayjs(r.date)
+  //         .locale("th")
+  //         .utc()
+  //         .local()
+  //         .format("DD MMMM YYYY");
+  //       return { ...r, dateString, dateText };
+  //     });
+  //     setLotteryDate(_lotteryDate);
+  //     console.log("lotteryDate : ", _lotteryDate);
+  //   });
+  // }, []);
 
   useEffect(() => {
     axios({
@@ -64,16 +64,16 @@ const Lottery1 = () => {
     });
   }, [selectedDate]);
 
-  const getPrizeText = (index) =>
-    index < 5
-      ? `รางวัลที่ ${index + 1}`
-      : index === 5
-      ? "รางวัลเลขท้าย 3 ตัว"
-      : index === 6
-      ? "รางวัลเลขท้าย 2 ตัว"
-      : index === 7
-      ? "รางวัลเลขหน้า 3 ตัว"
-      : "รางวัลข้างเคียงรางวัลที่ 1";
+  // const getPrizeText = (index) =>
+  //   index < 5
+  //     ? `รางวัลที่ ${index + 1}`
+  //     : index === 5
+  //     ? "รางวัลเลขท้าย 3 ตัว"
+  //     : index === 6
+  //     ? "รางวัลเลขท้าย 2 ตัว"
+  //     : index === 7
+  //     ? "รางวัลเลขหน้า 3 ตัว"
+  //     : "รางวัลข้างเคียงรางวัลที่ 1";
 
   const calPrize = (number) => {
     let resultText = "";
@@ -178,7 +178,6 @@ const Lottery1 = () => {
         selectedDate={selectedDate}
         setSelectedDate={setSelectedDate}
         Dates={Dates}
-        lotteryDate={lotteryDate}
       ></LottoForm>
       <LottoResult lotteryResult={lotteryResult}></LottoResult>
       <LottoTable lotteryData={lotteryData} selectedDate={selectedDate} />

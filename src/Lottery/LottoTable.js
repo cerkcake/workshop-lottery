@@ -190,7 +190,7 @@ const LottoTable = ({ lotteryData, selectedDate }) => {
           </div>
         </div>
         <br />
-        {/* หวยย้อนหลัง */}
+        {/* หวยย้อนหลัง
         <div className=" flex mb-4 text-2xl">งวดวันที่ {selectedDate}</div>
         <div className="w-full flex">
           <div className="w-1/4 mx-2">
@@ -255,7 +255,7 @@ const LottoTable = ({ lotteryData, selectedDate }) => {
               {lotteryData[6]?.numbers[0]}
             </h1>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
