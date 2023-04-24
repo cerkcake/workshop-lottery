@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "target": "cake-lotto",
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
