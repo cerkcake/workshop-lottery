@@ -49,7 +49,7 @@ const Lottery1 = () => {
   useEffect(() => {
     axios({
       method: "GET",
-      url: `https://www.thairath.co.th/api-lottery?history=1&date=${selectedDate}`,
+      url: `https://api.thairath.co.th/phalcon/v1/api-lottery?history=1&date=${selectedDate}`,
     }).then((response) => {
       // console.log("response : ", response);
 
